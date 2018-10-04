@@ -34,7 +34,7 @@ public class ProjectAssignment {
 		if (i==0 || i==1) {
 			return 1;
 		} else {
-			return fibonacci(i-1)*fibonacci(i-2);
+			return fibonacci(i-1)+fibonacci(i-2);
 		}
 	}
 	
@@ -73,13 +73,14 @@ public class ProjectAssignment {
                 Student newStudent = new Student();
                 newStudent.setFirstName(elements[0]);
                 newStudent.setUserId(idCount);
-                HashMap<String,Integer> ranks = new HashMap<String,Integer>();
+		HashMap<String,Integer> ranks = new HashMap<String,Integer>();
                 for(int i = 1; i < elements.length; i++) {
-                //	orderedRanks.add(elements[i]);
+                	orderedRanks.add(i+"");
                 	ranks.put(elements[i],i);
                 	rankings.add(new Ranking(newStudent.getUserId(),Integer.parseInt(elements[i]),i));
                 }
-               // newStudent.setOrderedRankings(orderedRanks);
+                newStudent.setRankings(ranks);
+                newStudent.setOrderedRankings(orderedRanks);
                 students.add(newStudent);
                 idCount++;
             }
